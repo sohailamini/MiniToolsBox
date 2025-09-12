@@ -98,24 +98,24 @@ const PasswordGenerator = () => {
   ]);
 
   return (
-    <div className="max-w-2xl mx-auto">
-      <div className="text-center mb-8">
-        <h3 className="text-2xl font-bold text-white mb-4">
+    <div className="max-w-2xl mx-auto px-2 sm:px-4">
+      <div className="text-center mb-6 sm:mb-8">
+        <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">
           Password Generator
         </h3>
-        <p className="text-gray-300">
+        <p className="text-gray-300 text-sm sm:text-base">
           Generate secure passwords with customizable options
         </p>
       </div>
 
-      <div className="bg-gray-800 rounded-lg shadow-lg border border-gray-700 p-6 mb-6">
-        <div className="flex items-center space-x-3 mb-4">
+      <div className="bg-gray-800 rounded-lg shadow-lg border border-gray-700 p-4 sm:p-6 mb-4 sm:mb-6">
+        <div className="flex flex-col sm:flex-row sm:items-center space-y-3 sm:space-y-0 sm:space-x-3 mb-4">
           <div className="flex-1 relative">
             <input
               type={showPassword ? "text" : "password"}
               value={password}
               readOnly
-              className="input-field pr-20 text-lg font-mono"
+              className="input-field pr-20 text-sm sm:text-base lg:text-lg font-mono"
               placeholder="Generated password will appear here"
             />
             <button
@@ -123,9 +123,9 @@ const PasswordGenerator = () => {
               className="absolute right-12 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white"
             >
               {showPassword ? (
-                <EyeOff className="h-5 w-5" />
+                <EyeOff className="h-4 w-4 sm:h-5 sm:w-5" />
               ) : (
-                <Eye className="h-5 w-5" />
+                <Eye className="h-4 w-4 sm:h-5 sm:w-5" />
               )}
             </button>
             <button
@@ -133,15 +133,15 @@ const PasswordGenerator = () => {
               className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white"
             >
               {copied ? (
-                <CheckCircle className="h-5 w-5 text-green-500" />
+                <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-green-500" />
               ) : (
-                <Copy className="h-5 w-5" />
+                <Copy className="h-4 w-4 sm:h-5 sm:w-5" />
               )}
             </button>
           </div>
           <button
             onClick={generatePassword}
-            className="btn-primary flex items-center space-x-2"
+            className="btn-primary flex items-center justify-center space-x-2 w-full sm:w-auto text-sm sm:text-base px-4 py-2 sm:py-3"
           >
             <RefreshCw className="h-4 w-4" />
             <span>Generate</span>
@@ -149,12 +149,12 @@ const PasswordGenerator = () => {
         </div>
 
         {password && (
-          <div className="flex items-center justify-between text-sm">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between text-xs sm:text-sm gap-2 sm:gap-0">
             <span className="text-gray-300">
               Length: {password.length} characters
             </span>
             <span
-              className={`px-3 py-1 rounded-full font-medium ${getStrengthColor()}`}
+              className={`px-2 sm:px-3 py-1 rounded-full font-medium text-xs sm:text-sm ${getStrengthColor()}`}
             >
               {strength}
             </span>
@@ -162,14 +162,14 @@ const PasswordGenerator = () => {
         )}
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="bg-gray-800 rounded-lg shadow-lg border border-gray-700 p-6">
-          <h4 className="text-lg font-semibold text-white mb-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+        <div className="bg-gray-800 rounded-lg shadow-lg border border-gray-700 p-4 sm:p-6">
+          <h4 className="text-base sm:text-lg font-semibold text-white mb-3 sm:mb-4">
             Password Length
           </h4>
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
+              <label className="block text-xs sm:text-sm font-medium text-gray-300 mb-2">
                 Length: {length} characters
               </label>
               <input
@@ -188,11 +188,11 @@ const PasswordGenerator = () => {
           </div>
         </div>
 
-        <div className="bg-gray-800 rounded-lg shadow-lg border border-gray-700 p-6">
-          <h4 className="text-lg font-semibold text-white mb-4">
+        <div className="bg-gray-800 rounded-lg shadow-lg border border-gray-700 p-4 sm:p-6">
+          <h4 className="text-base sm:text-lg font-semibold text-white mb-3 sm:mb-4">
             Character Types
           </h4>
-          <div className="space-y-3">
+          <div className="space-y-2 sm:space-y-3">
             <label className="flex items-center">
               <input
                 type="checkbox"
@@ -200,7 +200,7 @@ const PasswordGenerator = () => {
                 onChange={(e) => setIncludeUppercase(e.target.checked)}
                 className="mr-3"
               />
-              <span className="text-sm text-gray-300">
+              <span className="text-xs sm:text-sm text-gray-300">
                 Uppercase letters (A-Z)
               </span>
             </label>
@@ -211,7 +211,7 @@ const PasswordGenerator = () => {
                 onChange={(e) => setIncludeLowercase(e.target.checked)}
                 className="mr-3"
               />
-              <span className="text-sm text-gray-300">
+              <span className="text-xs sm:text-sm text-gray-300">
                 Lowercase letters (a-z)
               </span>
             </label>
@@ -222,7 +222,9 @@ const PasswordGenerator = () => {
                 onChange={(e) => setIncludeNumbers(e.target.checked)}
                 className="mr-3"
               />
-              <span className="text-sm text-gray-300">Numbers (0-9)</span>
+              <span className="text-xs sm:text-sm text-gray-300">
+                Numbers (0-9)
+              </span>
             </label>
             <label className="flex items-center">
               <input
@@ -231,17 +233,19 @@ const PasswordGenerator = () => {
                 onChange={(e) => setIncludeSymbols(e.target.checked)}
                 className="mr-3"
               />
-              <span className="text-sm text-gray-300">Symbols (!@#$%^&*)</span>
+              <span className="text-xs sm:text-sm text-gray-300">
+                Symbols (!@#$%^&*)
+              </span>
             </label>
           </div>
         </div>
       </div>
 
-      <div className="bg-gray-800 rounded-lg shadow-lg border border-gray-700 p-6 mt-6 border border-gray-700">
-        <h4 className="text-lg font-semibold text-white mb-4">
+      <div className="bg-gray-800 rounded-lg shadow-lg border border-gray-700 p-4 sm:p-6 mt-4 sm:mt-6">
+        <h4 className="text-base sm:text-lg font-semibold text-white mb-3 sm:mb-4">
           Advanced Options
         </h4>
-        <div className="space-y-3">
+        <div className="space-y-2 sm:space-y-3">
           <label className="flex items-center">
             <input
               type="checkbox"
@@ -249,7 +253,7 @@ const PasswordGenerator = () => {
               onChange={(e) => setExcludeSimilar(e.target.checked)}
               className="mr-3"
             />
-            <span className="text-sm text-gray-300">
+            <span className="text-xs sm:text-sm text-gray-300">
               Exclude similar characters (il1Lo0O)
             </span>
           </label>
@@ -260,7 +264,7 @@ const PasswordGenerator = () => {
               onChange={(e) => setExcludeAmbiguous(e.target.checked)}
               className="mr-3"
             />
-            <span className="text-sm text-gray-300">
+            <span className="text-xs sm:text-sm text-gray-300">
               Exclude ambiguous characters (&#123; &#125; &#91; &#93; &#40;
               &#41; &#47; &#92; &#126; &#44; &#59; &#46; &#60; &#62;)
             </span>

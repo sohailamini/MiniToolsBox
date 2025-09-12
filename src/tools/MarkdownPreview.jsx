@@ -132,9 +132,7 @@ function hello() {
   return (
     <div className="max-w-6xl mx-auto">
       <div className="text-center mb-8">
-        <h3 className="text-2xl font-bold text-white mb-4">
-          Markdown Preview
-        </h3>
+        <h3 className="text-2xl font-bold text-white mb-4">Markdown Preview</h3>
         <p className="text-gray-300">
           Convert Markdown to HTML with real-time preview
         </p>
@@ -186,7 +184,7 @@ function hello() {
             <textarea
               value={markdown}
               onChange={(e) => handleMarkdownChange(e.target.value)}
-              className="w-full h-96 p-4 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent resize-none font-mono text-sm"
+              className="w-full h-96 p-4 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent resize-none font-mono text-sm text-white placeholder-gray-400"
               placeholder="Enter your Markdown here..."
             />
           </div>
@@ -287,5 +285,3 @@ function hello() {
 };
 
 export default MarkdownPreview;
-
-

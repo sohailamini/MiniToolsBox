@@ -135,16 +135,18 @@ const JSONFormatter = () => {
                   setInputJson(e.target.value);
                   validateJson();
                 }}
-                className={`w-full h-64 p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent resize-none font-mono text-sm ${
-                  !isValid ? "border-red-300 bg-red-50" : "border-gray-600"
+                className={`w-full h-64 p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent resize-none font-mono text-sm text-white placeholder-gray-400 ${
+                  !isValid
+                    ? "border-red-400 bg-red-900/20"
+                    : "border-gray-600 bg-gray-700"
                 }`}
                 placeholder="Paste your JSON here..."
               />
 
               {!isValid && error && (
-                <div className="flex items-start space-x-2 p-3 bg-red-50 border border-red-200 rounded-lg">
-                  <AlertCircle className="h-5 w-5 text-red-500 mt-0.5 flex-shrink-0" />
-                  <div className="text-sm text-red-700">
+                <div className="flex items-start space-x-2 p-3 bg-red-900/20 border border-red-400 rounded-lg">
+                  <AlertCircle className="h-5 w-5 text-red-400 mt-0.5 flex-shrink-0" />
+                  <div className="text-sm text-red-300">
                     <div className="font-medium">Invalid JSON:</div>
                     <div>{error}</div>
                   </div>
@@ -256,9 +258,7 @@ const JSONFormatter = () => {
 
       {/* JSON Examples */}
       <div className="mt-8 bg-gray-800 rounded-lg shadow-lg p-6">
-        <h4 className="text-lg font-semibold text-white mb-4">
-          JSON Examples
-        </h4>
+        <h4 className="text-lg font-semibold text-white mb-4">JSON Examples</h4>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <h5 className="font-medium text-white mb-2">Valid JSON</h5>
@@ -316,5 +316,3 @@ const JSONFormatter = () => {
 };
 
 export default JSONFormatter;
-
-

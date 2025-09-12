@@ -94,7 +94,7 @@ const Base64Converter = () => {
             <textarea
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
-              className="w-full h-48 p-4 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent resize-none font-mono text-sm"
+              className="w-full h-48 p-4 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent resize-none font-mono text-sm text-white placeholder-gray-400"
               placeholder={
                 mode === "encode"
                   ? "Enter text to encode..."
@@ -220,9 +220,7 @@ const Base64Converter = () => {
         <h4 className="text-lg font-semibold text-white mb-4">Examples</h4>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <h5 className="font-medium text-white mb-2">
-              Encoding Examples
-            </h5>
+            <h5 className="font-medium text-white mb-2">Encoding Examples</h5>
             <div className="space-y-2 text-sm">
               <div className="bg-gray-900 p-3 rounded">
                 <div className="font-medium">Input:</div>
@@ -233,9 +231,7 @@ const Base64Converter = () => {
             </div>
           </div>
           <div>
-            <h5 className="font-medium text-white mb-2">
-              Decoding Examples
-            </h5>
+            <h5 className="font-medium text-white mb-2">Decoding Examples</h5>
             <div className="space-y-2 text-sm">
               <div className="bg-gray-900 p-3 rounded">
                 <div className="font-medium">Input:</div>
@@ -252,5 +248,3 @@ const Base64Converter = () => {
 };
 
 export default Base64Converter;
-
-

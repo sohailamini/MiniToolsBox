@@ -26,10 +26,12 @@ const ToolPage = () => {
   // Safety check for toolId
   if (!toolId) {
     return (
-      <div className="min-h-screen bg-gray-900 flex items-center justify-center">
+      <div className="min-h-screen bg-gray-900 flex items-center justify-center px-4">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-white mb-4">Loading...</h1>
-          <p className="text-gray-400 mb-8">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
+            Loading...
+          </h1>
+          <p className="text-gray-400 mb-8 text-sm sm:text-base">
             Please wait while we load the tool.
           </p>
         </div>
@@ -41,17 +43,19 @@ const ToolPage = () => {
 
   if (!tool) {
     return (
-      <div className="min-h-screen bg-gray-900 flex items-center justify-center">
+      <div className="min-h-screen bg-gray-900 flex items-center justify-center px-4">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-white mb-4">Tool Not Found</h1>
-          <p className="text-gray-400 mb-8">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
+            Tool Not Found
+          </h1>
+          <p className="text-gray-400 mb-8 text-sm sm:text-base">
             The requested tool could not be found.
           </p>
           <Link
             to="/"
-            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold transition-colors text-sm sm:text-base inline-flex items-center"
           >
-            <Home className="inline-block mr-2 h-5 w-5" />
+            <Home className="inline-block mr-2 h-4 w-4 sm:h-5 sm:w-5" />
             Back to Home
           </Link>
         </div>
@@ -83,30 +87,34 @@ const ToolPage = () => {
     <div className="min-h-screen bg-gray-900">
       {/* Tool Header */}
       <div className="bg-gray-800 border-b border-gray-700">
-        <div className="container mx-auto px-4 py-2">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
+        <div className="container mx-auto px-3 sm:px-4 py-3 sm:py-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
+            <div className="flex flex-col sm:flex-row sm:items-center space-y-3 sm:space-y-0 sm:space-x-4">
               <Link
                 to="/"
-                className="flex items-center text-gray-400 hover:text-white transition-colors"
+                className="flex items-center text-gray-400 hover:text-white transition-colors text-sm sm:text-base"
               >
-                <ArrowLeft className="h-5 w-5 mr-2" />
+                <ArrowLeft className="h-4 w-4 sm:h-5 sm:w-5 mr-2" />
                 Back to Home
               </Link>
-              <div className="h-6 w-px bg-gray-600"></div>
-              <div className="flex items-center space-x-3">
-                <span className="text-3xl">{tool.icon}</span>
+              <div className="hidden sm:block h-6 w-px bg-gray-600"></div>
+              <div className="flex items-center space-x-2 sm:space-x-3">
+                <span className="text-2xl sm:text-3xl">{tool.icon}</span>
                 <div>
-                  <h1 className="text-xl font-bold text-white">{tool.name}</h1>
-                  <p className="text-gray-400">{tool.category}</p>
+                  <h1 className="text-lg sm:text-xl font-bold text-white">
+                    {tool.name}
+                  </h1>
+                  <p className="text-gray-400 text-xs sm:text-sm">
+                    {tool.category}
+                  </p>
                 </div>
               </div>
             </div>
             <Link
-              to="/"
-              className="flex items-center text-gray-400 hover:text-white transition-colors"
+              to="/all-tools"
+              className="flex items-center text-gray-400 hover:text-white transition-colors text-sm sm:text-base self-start sm:self-auto"
             >
-              <Home className="h-5 w-5 mr-2" />
+              <Home className="h-4 w-4 sm:h-5 sm:w-5 mr-2" />
               All Tools
             </Link>
           </div>
@@ -114,22 +122,26 @@ const ToolPage = () => {
       </div>
 
       {/* Tool Content */}
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-3 sm:px-4 py-4 sm:py-6 md:py-8">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-gray-800 rounded-lg p-8 border border-gray-700">
-            <div className="mb-6">
-              <h2 className="text-xl font-semibold text-white mb-2">
+          <div className="bg-gray-800 rounded-lg p-4 sm:p-6 md:p-8 border border-gray-700">
+            <div className="mb-4 sm:mb-6">
+              <h2 className="text-lg sm:text-xl font-semibold text-white mb-2">
                 Description
               </h2>
-              <p className="text-gray-300">{tool.description}</p>
+              <p className="text-gray-300 text-sm sm:text-base">
+                {tool.description}
+              </p>
             </div>
 
-            <div className="bg-gray-900 rounded-lg p-6 border border-gray-700">
+            <div className="bg-gray-900 rounded-lg p-3 sm:p-4 md:p-6 border border-gray-700">
               {ToolComponent ? (
                 <ToolComponent />
               ) : (
-                <div className="text-center py-12">
-                  <p className="text-gray-400">Tool component not found.</p>
+                <div className="text-center py-8 sm:py-12">
+                  <p className="text-gray-400 text-sm sm:text-base">
+                    Tool component not found.
+                  </p>
                 </div>
               )}
             </div>

@@ -182,8 +182,10 @@ const RegexTester = () => {
                     type="text"
                     value={pattern}
                     onChange={(e) => setPattern(e.target.value)}
-                    className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent font-mono ${
-                      !isValid ? "border-red-300 bg-red-50" : "border-gray-600"
+                    className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent font-mono text-white placeholder-gray-400 ${
+                      !isValid
+                        ? "border-red-400 bg-red-900/20"
+                        : "border-gray-600 bg-gray-700"
                     }`}
                     placeholder="/your-regex-pattern/"
                   />
@@ -214,7 +216,7 @@ const RegexTester = () => {
                 <textarea
                   value={testString}
                   onChange={(e) => setTestString(e.target.value)}
-                  className="w-full h-24 p-3 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent resize-none"
+                  className="w-full h-24 p-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent resize-none text-white placeholder-gray-400"
                   placeholder="Enter text to test against the regex..."
                 />
               </div>
@@ -364,9 +366,7 @@ const RegexTester = () => {
             </h4>
             <div className="space-y-3 text-sm">
               <div>
-                <div className="font-medium text-white">
-                  Character Classes:
-                </div>
+                <div className="font-medium text-white">Character Classes:</div>
                 <div className="font-mono text-gray-300">
                   [a-z], [A-Z], [0-9], [a-zA-Z0-9], [^abc]
                 </div>
@@ -393,5 +393,3 @@ const RegexTester = () => {
 };
 
 export default RegexTester;
-
-
